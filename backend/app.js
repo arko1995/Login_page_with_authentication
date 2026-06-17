@@ -8,6 +8,7 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use("/api", userRouter, loginRouter);
+app.use("/api", userRouter);
+app.use("/api", loginRouter);
 
 export default app;
