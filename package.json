@@ -1,0 +1,20 @@
+{
+  "name": "login-page-with-authentication",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/arko1995/Login_page_with_authentication#readme",
+  "bugs": {
+    "url": "https://github.com/arko1995/Login_page_with_authentication/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arko1995/Login_page_with_authentication.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
