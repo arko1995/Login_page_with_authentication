@@ -20,7 +20,7 @@ const SignUpPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post("/createuser", formData);
-
+      setLoginSuccess(true);
       console.log(response);
     } catch (error) {
       console.log(error.message);
