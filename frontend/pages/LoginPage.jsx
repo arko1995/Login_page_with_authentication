@@ -1,18 +1,28 @@
 import React from "react";
 import { Link } from "react-router";
 import { useState } from "react";
+import axios from "../utils/axios.utils";
 const LoginPage = () => {
   const [formData, setFormData] = useState({
     password: "",
     email: "",
   });
 
-  const handleSubmit = () => {
-    console.log("submit");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/login", formData);
+      console.log(response);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
-  const handleChange = () => {
-    console.log("change");
+  const handleChange = (e) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [e.target.id]: e.target.value,
+    }));
   };
 
   return (
