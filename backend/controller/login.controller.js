@@ -18,7 +18,7 @@ export const authenticateUser = async (req, res) => {
     const matchedPassword = await user.comparePassword(password);
 
     if (!matchedPassword) {
-      return res.send("password not matched");
+      return res.status(400).send("password not matched");
     }
 
     const token = jwt.sign(
@@ -38,6 +38,6 @@ export const authenticateUser = async (req, res) => {
         message: "login successful",
       });
   } catch (error) {
-    res.send(error);
+    res.status(400).send(error);
   }
 };

@@ -16,10 +16,11 @@ const LoginPage = () => {
     try {
       const response = await axios.post("/login", formData);
       console.log(response);
-
+      alert(response.data?.message);
       setLoginSuccess(true);
     } catch (error) {
-      console.log(error.message);
+      alert(error.response?.data?.message);
+      console.log(error.response?.data?.message);
     }
   };
 
