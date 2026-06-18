@@ -12,7 +12,8 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post("/login", formData);
-      console.log(response);
+      console.log(response.data);
+      localStorage.setItem("token", response.data.token);
     } catch (error) {
       console.log(error.message);
     }

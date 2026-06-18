@@ -24,12 +24,19 @@ export const authenticateUser = async (req, res) => {
     const token = jwt.sign(
       { userId: user._id.toString() },
       process.env.JWT_SECRET,
+      { expiresIn: "1h" },
     );
 
-    res.json({
-      message: "login successful",
-      token,
-    });
+    res
+      .cookie("token", token, {
+        httpOnly: true,
+        secure: false,
+        sameSite: "lax",
+        maxAge: 60 * 60 * 1000,
+      })
+      .json({
+        message: "login successful",
+      });
   } catch (error) {
     res.send(error);
   }
