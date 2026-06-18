@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import axios from "../utils/axios.utils";
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -8,12 +9,22 @@ const SignUpPage = () => {
     email: "",
   });
 
-  const handleChange = () => {
-    console.log("change");
+  const handleChange = (e) => {
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [e.target.id]: e.target.value,
+    }));
   };
 
-  const handleSubmit = () => {
-    console.log("submit");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/createuser", formData);
+
+      console.log(response);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
